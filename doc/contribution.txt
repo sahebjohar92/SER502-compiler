@@ -1,1 +1,19 @@
+Team 23 
 
+The group created the grammar for RACE language.Following were individual contributions.
+
+1] Abhishek Kumar - Grammar for program,body,variable declaration,variable initialisation,Digits,AlphaNumeric,Letters.
+
+2] Aman Maheshwari - Grammar for statement ,ifExpression,expressionBody,expression,WhiteSpaces,Comments,Line Comments.
+
+3] Karansher Bhangal - Grammar for expression including arithmetic and relational operations such as *,/,+,-,%,<,>,<=,>=,!=,==, For loop, effectiveForLoop,Seperators.
+
+4] Saheb Johar - Grammar for  basicType such as INT,FLOAT,BOOLEAN,CHAR,STRING,Keywords such as IF,ELSE,etc.,Operators.
+
+Contribution Plan for Milestone 3
+
+
+1] Abhishek Kumar --Lexical Analyser and handling the conversion of character inputs into proper tokens and sending to the parser.
+2] Aman Maheshwari --Taking the input from the Lexer into the Parser and generating the syntax tree of the grammar.
+3] Karansher Bhangal --Generating the Intermediate Code using 3-address code.
+4] Saheb Johar -- Implementing the Listener and Visitor features of ANTLRv4
