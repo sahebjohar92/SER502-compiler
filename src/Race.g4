@@ -1,3 +1,12 @@
+grammar Race;
+program:'race' body* 'finish';
+
+body : variableDeclaration ';'|statement;
+variableDeclaration : type varDeclarators ;
+varDeclarators: varDeclarator (',' varDeclarator)*;
+varDeclarator: varDecalaratorId ('=' varInit)?;
+varDecalaratorId : IDENTIFIER ('[' ']')*;
+varInit:expression;
 statement: IF ifExpression statement* (ELSE ifExpression statement*) (ELSE statement*)? ENDIF  | expressionBody';'| SEMI
    |FOR '(' forControl ')' statement* ENDFOR ;
 ifExpression : '(' expression ')' ;
@@ -44,3 +53,6 @@ ENDFOR:'endfor';
 ENDIF:'endif';
 
 IDENTIFIER: (Letter|Digits) AlphaNumeric*;
+Digits : [0-9] ([0-9]* [0-9])?;
+AlphaNumeric: Letter| [0-9];
+Letter:[a-zA-Z];
