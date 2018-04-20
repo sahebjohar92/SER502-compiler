@@ -1,3 +1,10 @@
+statement: IF ifExpression statement* (ELSE ifExpression statement*) (ELSE statement*)? ENDIF  | expressionBody';'| SEMI
+   |FOR '(' forControl ')' statement* ENDFOR ;
+ifExpression : '(' expression ')' ;
+WS:[ \t\r\n]+ -> skip;
+COMMENT:'/' .? '*/' -> skip;
+LINE_COMMENT:'//' ~[\r\n]* -> skip;
+
 forControl:forInit? ';' expressionBody? ';'forUpdate=expressionBody?;
 forInit:expressionBody;//variableDeclaration|
 expressionBody : expression (',' expression)* ;
