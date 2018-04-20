@@ -10,9 +10,11 @@ varInit:expression;
 statement: IF ifExpression statement* (ELSE ifExpression statement*) (ELSE statement*)? ENDIF  | expressionBody';'| SEMI
    |FOR '(' forControl ')' statement* ENDFOR ;
 ifExpression : '(' expression ')' ;
-WS:[ \t\r\n]+ -> skip;
-COMMENT:'/' .? '*/' -> skip;
-LINE_COMMENT:'//' ~[\r\n]* -> skip;
+
+forControl:forInit? ';' expressionBody? ';'forUpdate=expressionBody?;
+forInit:expressionBody;//variableDeclaration|
+expressionBody : expression (',' expression)* ;
+primary : variableDeclaration|IDENTIFIER;
 
 expression : primary| expression postfix=('++' | '--')
     | prefix=('+'|'-'|'++'|'--') expression
@@ -33,10 +35,6 @@ expression : primary| expression postfix=('++' | '--')
       bop=('=' | '+=' | '-=' | '*=' | '/=' | '&=' | '|=' | '^=' | '>>=' | '>>>=' | '<<=' | '%=')
       expression;
 
-forControl:forInit? ';' expressionBody? ';'forUpdate=expressionBody?;
-forInit:expressionBody;//variableDeclaration|
-expressionBody : expression (',' expression)* ;
-primary : variableDeclaration|IDENTIFIER;
 
 type: basicType;
 basicType: BOOLEAN| CHAR| INT| FLOAT;
@@ -55,4 +53,8 @@ ENDIF:'endif';
 IDENTIFIER: (Letter|Digits) AlphaNumeric*;
 Digits : [0-9] ([0-9]* [0-9])?;
 AlphaNumeric: Letter| [0-9];
+
+WS:[ \t\r\n]+ -> skip;
+COMMENT:'/' .? '*/' -> skip;
+LINE_COMMENT:'//' ~[\r\n]* -> skip;
 Letter:[a-zA-Z];
