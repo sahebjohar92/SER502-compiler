@@ -5,6 +5,25 @@ WS:[ \t\r\n]+ -> skip;
 COMMENT:'/' .? '*/' -> skip;
 LINE_COMMENT:'//' ~[\r\n]* -> skip;
 
+expression : primary| expression postfix=('++' | '--')
+    | prefix=('+'|'-'|'++'|'--') expression
+    | prefix=('~'|'!') expression
+    | expression bop=('*'|'/'|'%') expression
+    | expression bop=('+'|'-') expression
+    | expression ('<' '<' | '>' '>' '>' | '>' '>') expression
+    | expression bop=('<=' | '>=' | '>' | '<') expression
+    | expression bop=INSTANCEOF basicType
+    | expression bop=('==' | '!=') expression
+    | expression bop='&' expression
+    | expression bop='^' expression
+    | expression bop='|' expression
+    | expression bop='&&' expression
+    | expression bop='||' expression
+    | expression bop='?' expression ':' expression
+    | <assoc=right> expression
+      bop=('=' | '+=' | '-=' | '*=' | '/=' | '&=' | '|=' | '^=' | '>>=' | '>>>=' | '<<=' | '%=')
+      expression;
+
 forControl:forInit? ';' expressionBody? ';'forUpdate=expressionBody?;
 forInit:expressionBody;//variableDeclaration|
 expressionBody : expression (',' expression)* ;
