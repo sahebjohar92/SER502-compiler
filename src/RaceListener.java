@@ -127,16 +127,6 @@ public interface RaceListener extends ParseTreeListener {
 	 */
 	void exitExpressionBody(RaceParser.ExpressionBodyContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link RaceParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpression(RaceParser.ExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link RaceParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpression(RaceParser.ExpressionContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link RaceParser#primary}.
 	 * @param ctx the parse tree
 	 */
@@ -146,6 +136,16 @@ public interface RaceListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitPrimary(RaceParser.PrimaryContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RaceParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpression(RaceParser.ExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RaceParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpression(RaceParser.ExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link RaceParser#type}.
 	 * @param ctx the parse tree

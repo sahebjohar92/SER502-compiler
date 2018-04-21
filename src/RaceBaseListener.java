@@ -159,18 +159,6 @@ public class RaceBaseListener implements RaceListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpression(RaceParser.ExpressionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitExpression(RaceParser.ExpressionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterPrimary(RaceParser.PrimaryContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -178,6 +166,18 @@ public class RaceBaseListener implements RaceListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitPrimary(RaceParser.PrimaryContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExpression(RaceParser.ExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExpression(RaceParser.ExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

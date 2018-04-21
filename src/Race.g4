@@ -23,7 +23,7 @@ expression : primary| expression postfix=('++' | '--')
     | expression bop=('+'|'-') expression
     | expression ('<' '<' | '>' '>' '>' | '>' '>') expression
     | expression bop=('<=' | '>=' | '>' | '<') expression
-    | expression bop=INSTANCEOF basicType
+    | expression bop='INSTANCEOF' basicType
     | expression bop=('==' | '!=') expression
     | expression bop='&' expression
     | expression bop='^' expression
