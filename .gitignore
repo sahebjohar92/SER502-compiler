@@ -1,5 +1,7 @@
 # Compiled class file
 *.class
+*.tokens
+*.interp
 
 # Log file
 *.log
@@ -17,6 +19,7 @@
 *.zip
 *.tar.gz
 *.rar
+*.xml
 
 # excluding editor specific settings
 

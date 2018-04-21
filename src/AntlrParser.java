@@ -21,7 +21,6 @@ public class AntlrParser {
 		System.out.println("done");
 
 		ParseTreeWalker walker = new ParseTreeWalker();
-		filename = filename.substring(0,filename.length()-4);
 		RaceWalker raceWalk = new RaceWalker();
 		walker.walk( raceWalk, parseTree );
 		
