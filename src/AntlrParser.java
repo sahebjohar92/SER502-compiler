@@ -17,13 +17,13 @@ public class AntlrParser {
 		CommonTokenStream commonTokenStream=new CommonTokenStream(javaLexer);
 		RaceParser raceParser=new RaceParser(commonTokenStream);
 		
-		ParseTree parseTree=raceParser.program();
+		ParseTree parseTree = raceParser.program();
 		System.out.println("done");
 
 		ParseTreeWalker walker = new ParseTreeWalker();
 		filename = filename.substring(0,filename.length()-4);
-		RaceWalker epsilonWalk = new RaceWalker(filename);
-		walker.walk( epsilonWalk, tree );
+		RaceWalker raceWalk = new RaceWalker();
+		walker.walk( raceWalk, parseTree );
 		
 	}
 
