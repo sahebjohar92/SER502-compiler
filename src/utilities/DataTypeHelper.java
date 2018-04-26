@@ -4,7 +4,7 @@ public class DataTypeHelper {
 
 	public static String convertBooleanToString(boolean bool)
 	{
-		if(bool == true){
+		if(bool){
 			return "T";
 		}else{
 			return "F";
