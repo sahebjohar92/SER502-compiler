@@ -21,7 +21,11 @@ public class RaceCompiler extends RaceBaseVisitor{
     }
 	
 	private IntermediateCodeGenerator intermediateCodeGenerator = new IntermediateCodeGenerator();
-	
+
+	public String getOutput() {
+		return intermediateCodeGenerator.IntermediateOutput;
+	}
+
 	@Override 
 	public Object visitProgram(RaceParser.ProgramContext ctx) 
 	{ 
@@ -47,11 +51,11 @@ public class RaceCompiler extends RaceBaseVisitor{
 		{
 			//if initialization and assignment done in the same statement
 			visit(ctx.num_expressn());
-			intermediateCodeGenerator.addIntermediateOutput("STORE" + indentifier + "REG");
+			intermediateCodeGenerator.addIntermediateOutput("SAVE " + indentifier + " REG");
 		}
 		else {
 			//if no assignment to the variable is done. Default value is can be 0
-			intermediateCodeGenerator.addIntermediateOutput("STORE" + indentifier + "NULL");
+			intermediateCodeGenerator.addIntermediateOutput("SAVE " + indentifier + " NULL");
 		}
 		return null;
 	}
@@ -62,10 +66,10 @@ public class RaceCompiler extends RaceBaseVisitor{
 		String identifier = ctx.IDENTIFIER().getText();
 		if(ctx.EQUALSto() != null) {
             visit(ctx.bool_expressn());
-            intermediateCodeGenerator.addIntermediateOutput("STORE " + identifier + " REG");
+            intermediateCodeGenerator.addIntermediateOutput("SAVE " + identifier + " REG");
         }
         else {
-        	intermediateCodeGenerator.addIntermediateOutput("STORE " + identifier + " NULL");
+        	intermediateCodeGenerator.addIntermediateOutput("SAVE " + identifier + " NULL");
         }
         return null;
 		
@@ -172,14 +176,14 @@ public class RaceCompiler extends RaceBaseVisitor{
 	}
 	
 	@Override 
-	public Object visitExpressionBooleanFunctionCall(RaceParser.ExpressionBooleanFunctionCallContext ctx) 
+	public Object visitExpressionBooleanFunctionCall(RaceParser.ExpressionBooleanFunctionCallContext ctx)
 	{ 
         visit(ctx.func());
 		return null; 
 	}
 	
 	@Override 
-	public Object visitExpressionBooleanIdentifierOnly(RaceParser.ExpressionBooleanIdentifierOnlyContext ctx) 
+	public Object visitExpressionBooleanIdentifierOnly(RaceParser.ExpressionBooleanIdentifierOnlyContext ctx)
 	{ 
 		intermediateCodeGenerator.addIntermediateOutput("READ REG " + ctx.IDENTIFIER().getText());
 		if(ctx.NOT() != null) {
