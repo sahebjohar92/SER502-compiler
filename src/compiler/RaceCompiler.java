@@ -384,7 +384,7 @@ public class RaceCompiler extends RaceBaseVisitor{
 
         intermediateCodeGenerator.addIntermediateOutput(RaceRuntimeConstant.FUNCTION_CALL + " " + stmtIdentifier);
 
-		return visitChildren(ctx); 
+		return null;
 	}
 	
 
