@@ -1,5 +1,5 @@
 race
-
-float a >> 8/4 + 5 - 4
-WRITE(a)
+for(float a>>5; a<=10; a++){
+	WRITE(a)
+}
 finish
