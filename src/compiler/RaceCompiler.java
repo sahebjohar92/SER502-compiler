@@ -354,15 +354,15 @@ public class RaceCompiler extends RaceBaseVisitor{
 	{ 
 		List<String> parameters = new ArrayList<>();
 		intermediateCodeGenerator.addIntermediateOutput(RaceRuntimeConstant.FUNCTION_START);
-		intermediateCodeGenerator.addIntermediateOutput(RaceRuntimeConstant.FUNCTION_NAME + " ");
-		intermediateCodeGenerator.addIntermediateOutput(ctx.IDENTIFIER().getText());
+		intermediateCodeGenerator.addIntermediateOutput(RaceRuntimeConstant.FUNCTION_NAME + " " + ctx.IDENTIFIER().getText());
+		//intermediateCodeGenerator.addIntermediateOutput(ctx.IDENTIFIER().getText());
 		if(ctx.inputParams().IDENTIFIER() != null) {
 			for(TerminalNode parameter: ctx.inputParams().IDENTIFIER()) {
 				parameters.add(parameter.getText());
 			}
 		}
-		intermediateCodeGenerator.addIntermediateOutput(RaceRuntimeConstant.FUNCTION_PARAMS + " ");
-		intermediateCodeGenerator.addIntermediateOutput(StringUtils.join(parameters.toArray(), " "));
+		intermediateCodeGenerator.addIntermediateOutput(RaceRuntimeConstant.FUNCTION_PARAMS + " " + StringUtils.join(parameters.toArray(), " "));
+		//intermediateCodeGenerator.addIntermediateOutput(StringUtils.join(parameters.toArray(), " "));
 		visit(ctx.body());
 		intermediateCodeGenerator.addIntermediateOutput(RaceRuntimeConstant.FUNCTION_END);
 		return null; 

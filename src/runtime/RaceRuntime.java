@@ -281,6 +281,7 @@ public class RaceRuntime implements RaceRuntimeConstant {
     }
 
     private int executeBlock(int counter, String stopCondition, boolean skip) {
+    	//System.out.println(counter);
         while(counter > -1) {
             String instruction = intermediateCode.get(counter);
             if (instruction.equals(stopCondition)) {
