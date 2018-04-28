@@ -21,17 +21,24 @@ public class Main {
 
         RaceParser raceParser = new RaceParser(tokens);
         ParseTree parseTree = raceParser.program();
+        
+        String parseTreeOutput = parseTree.toStringTree(raceParser);
+        
+        if(parseTreeOutput !=null && parseTreeOutput.contains("mismatched input")) {
+        	System.out.println(parseTree.toStringTree(raceParser));
 
-        System.out.println(parseTree.toStringTree(raceParser));
+            RaceCompiler compiler = new RaceCompiler();
+            compiler.visit(parseTree);
 
-        RaceCompiler compiler = new RaceCompiler();
-        compiler.visit(parseTree);
+            System.out.println(compiler.getOutput());
 
-        System.out.println(compiler.getOutput());
-
-        RaceRuntime runtime = new RaceRuntime(compiler.getOutput());
-        runtime.execute();
-        System.out.println(runtime.getOutput());
+            RaceRuntime runtime = new RaceRuntime(compiler.getOutput());
+            runtime.execute();
+            System.out.println(runtime.getOutput());
+        }else {
+        	System.out.println(parseTree.toStringTree(raceParser));
+        	System.out.println("Syntax error in example");
+        }
 
     }
 }
