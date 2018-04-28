@@ -28,14 +28,11 @@ public class Main {
 
         PrintWriter writer = new PrintWriter(outputPath + inputFile, "UTF-8");
         
-        String parseTreeOutput = parseTree.toStringTree(raceParser);
-        
-        if(parseTreeOutput !=null && !parseTreeOutput.contains("mismatched input")) {
-        	System.out.println(parseTree.toStringTree(raceParser));
-
+        try {
             RaceCompiler compiler = new RaceCompiler();
             compiler.visit(parseTree);
-
+            
+            System.out.println(parseTree.toStringTree(raceParser));
             System.out.println(compiler.getOutput());
             writer.println(compiler.getOutput());
 
@@ -45,9 +42,9 @@ public class Main {
 
             writer.println("Output of the program ");
             writer.println(runtime.getOutput());
-        }else {
-        	System.out.println(parseTree.toStringTree(raceParser));
-        	System.out.println("Syntax error in example");
+        }catch(Exception ex) {
+        	writer.println("Syntax error in example program. Please check.");
+        	System.out.println("Syntax error in example program. Please check.");
         }
 
         writer.close();
