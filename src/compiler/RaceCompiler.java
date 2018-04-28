@@ -152,7 +152,7 @@ public class RaceCompiler extends RaceBaseVisitor{
 	public Object visitExpressionBooleanComparison(RaceParser.ExpressionBooleanComparisonContext ctx) 
 	{ 
 		visit(ctx.comp_expressn());
-		return visitChildren(ctx); 
+		return null; 
 	}
 	
 
@@ -501,7 +501,7 @@ public class RaceCompiler extends RaceBaseVisitor{
             visit(ctx.func());
             intermediateCodeGenerator.addIntermediateOutput("DISPLAY REG");
         }
-		return visitChildren(ctx); 
+		return null; 
 	}
 	
 	
