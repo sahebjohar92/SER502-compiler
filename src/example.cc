@@ -1,5 +1,8 @@
 race
 
-float a >> 8/4 + 5 - 4
+float a >> 4
+if (a == 4){
+    a++
+}else
 WRITE(a)
 finish

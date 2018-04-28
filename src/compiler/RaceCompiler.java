@@ -232,7 +232,7 @@ public class RaceCompiler extends RaceBaseVisitor{
 			case RaceParser.LESS_or_EQU:
 				intermediateCodeGenerator.addIntermediateOutput("LESSER_OR_EQUAL REG A B");
 				break;
-			case RaceParser.EQUALSto:
+			case RaceParser.ISEquals:
 				intermediateCodeGenerator.addIntermediateOutput("EQUAL_TO REG A B");
 				break;
 			case RaceParser.NotEquals:
