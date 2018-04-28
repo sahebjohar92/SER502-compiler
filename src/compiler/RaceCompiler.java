@@ -80,7 +80,7 @@ public class RaceCompiler extends RaceBaseVisitor{
 	public Object visitAssignmentIncrementOrDecrement(RaceParser.AssignmentIncrementOrDecrementContext ctx) 
 	{ 
 		String identifier = ctx.IDENTIFIER().getText();
-		intermediateCodeGenerator.addIntermediateOutput("ADD REG 1");
+		intermediateCodeGenerator.addIntermediateOutput("SAVE REG 1");
 		switch(ctx.op.getType()) {
 			case RaceParser.INCR:
 				intermediateCodeGenerator.addIntermediateOutput("ADD "+ identifier + " " +identifier+" REG" );
