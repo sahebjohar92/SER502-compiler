@@ -1,0 +1,11 @@
+race
+float a >> 5
+if (a < 5){
+    a >> 4
+}else if (a ==5){
+    a >> a + 1
+}else {
+    a++
+}
+WRITE(a)
+finish
