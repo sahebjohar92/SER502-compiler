@@ -1,8 +1,5 @@
 race
-
-float a >> 4
-if (a == 4){
-    a++
+for(float a>>5; a<=10; a++){
+	WRITE(a)
 }
-WRITE(a)
 finish

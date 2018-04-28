@@ -1,0 +1,8 @@
+race
+float a >> 5*6 + 4 + 8/2
+WRITE('a' = )
+WRITE(a)
+WRITE('INCREMENTING VALUE OF A')
+a++
+WRITE(a)
+finish
