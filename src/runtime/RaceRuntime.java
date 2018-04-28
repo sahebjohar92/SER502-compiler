@@ -304,7 +304,7 @@ public class RaceRuntime implements RaceRuntimeConstant {
         int counter;
         while(true) {
             counter = executeBlock(whileStartCounter, CONDITION_END, false);
-            if(getValue(ACC_REGISTER).asDouble().intValue() > 0) {
+            if(getValue(ACC_REGISTER).asBoolean()) {
                 executeBlock(counter, WHILE_BLOCK_END, false);
             }
             else {
