@@ -86,7 +86,7 @@ public class RaceCompiler extends RaceBaseVisitor{
 				intermediateCodeGenerator.addIntermediateOutput("ADD "+ identifier + " " +identifier+" REG" );
 				break;
 			case RaceParser.DECR:
-				intermediateCodeGenerator.addIntermediateOutput("SUB" + identifier + " " + identifier +" REG");
+				intermediateCodeGenerator.addIntermediateOutput("SUB " + identifier + " " + identifier +" REG");
 				break;
 		
 		}
@@ -101,16 +101,16 @@ public class RaceCompiler extends RaceBaseVisitor{
 		visit(ctx.num_expressn());
 		switch(ctx.op.getType()) {
 			case RaceParser.ADD:
-				intermediateCodeGenerator.addIntermediateOutput("ADD" +identifier + " " + identifier+ " REG");
+				intermediateCodeGenerator.addIntermediateOutput("ADD " +identifier + " " + identifier+ " REG");
 				break;
 			case RaceParser.SUB:
-				intermediateCodeGenerator.addIntermediateOutput("SUB" + identifier + " " + identifier +" REG");
+				intermediateCodeGenerator.addIntermediateOutput("SUB " + identifier + " " + identifier +" REG");
 				break;
 			case RaceParser.MUL:
-				intermediateCodeGenerator.addIntermediateOutput("MUL" + identifier + " " + identifier + " REG");
+				intermediateCodeGenerator.addIntermediateOutput("MUL " + identifier + " " + identifier + " REG");
 				break;
 			case RaceParser.DIV:
-				intermediateCodeGenerator.addIntermediateOutput("DIV" + identifier + " " + identifier + " REG");
+				intermediateCodeGenerator.addIntermediateOutput("DIV " + identifier + " " + identifier + " REG");
 				break;
 		}
 		return null;
