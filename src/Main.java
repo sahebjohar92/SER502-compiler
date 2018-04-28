@@ -13,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        String var1 = "/Users/sahebjohar/SER502-Spring2018-Team23/src/example.cc";
+        String var1 = "./src/example.cc";
         CharStream code = CharStreams.fromFileName(var1);
 
         RaceLexer raceLexer = new RaceLexer(code);
