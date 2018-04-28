@@ -26,8 +26,6 @@ public class Main {
         RaceParser raceParser = new RaceParser(tokens);
         ParseTree parseTree = raceParser.program();
 
-        System.out.println(parseTree.toStringTree(raceParser));
-
         PrintWriter writer = new PrintWriter(outputPath + inputFile, "UTF-8");
         
         String parseTreeOutput = parseTree.toStringTree(raceParser);
