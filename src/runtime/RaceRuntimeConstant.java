@@ -21,19 +21,19 @@ public interface RaceRuntimeConstant {
 
 	public static final String UNARY_MINUS = "UNARY";
 
-	public static final String GREATER_THAN = "GREATER_THAN";
-	public static final String GREATER_THAN_EQUAL = "GREATER_THAN_EQUAL";
-	public static final String LESS_THAN = "LESS_THAN";
-	public static final String LESS_THAN_EQUAL= "LESS_THAN_EQUAL";
-	public static final String EQUAL_EQUAL = "EQUAL_EQUAL";
+	public static final String GREATER_THAN = "GREATER";
+	public static final String GREATER_THAN_EQUAL = "GREATER_OR_EQUAL";
+	public static final String LESS_THAN = "LESSER";
+	public static final String LESS_THAN_EQUAL= "LESSER_OR_EQUAL";
+	public static final String EQUAL_EQUAL = "EQUAL_TO";
 	public static final String NOT_EQUAL = "NOT_EQUAL";
 
 	public static final String OR = "OR";
 	public static final String AND = "AND";
 	public static final String NOT = "NOT";
 
-	public static final String BOOLEAN_EQUAL_EQUAL = "BOOLEAN_EQUAL_EQUAL";
-	public static final String BOOLEAN_NOT_EQUAL = "BOOLEAN_NOT_EQUAL";
+	public static final String BOOLEAN_EQUAL_EQUAL = "BOOL_ISEQUALS";
+	public static final String BOOLEAN_NOT_EQUAL = "BOOL_IS_NOT_EQUALS";
 
 	public static final String IF_ELSE_BLOCK_START = "IF_ELSE_BLOCK_START";
 	public static final String IF_ELSE_BLOCK_END = "IF_ELSE_BLOCK_END";
