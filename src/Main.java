@@ -28,21 +28,30 @@ public class Main {
 
         System.out.println(parseTree.toStringTree(raceParser));
 
-        RaceCompiler compiler = new RaceCompiler();
-        compiler.visit(parseTree);
-
-        System.out.println(compiler.getOutput());
-
         PrintWriter writer = new PrintWriter(outputPath + inputFile, "UTF-8");
-        writer.println(compiler.getOutput());
+        
+        String parseTreeOutput = parseTree.toStringTree(raceParser);
+        
+        if(parseTreeOutput !=null && !parseTreeOutput.contains("mismatched input")) {
+        	System.out.println(parseTree.toStringTree(raceParser));
 
+            RaceCompiler compiler = new RaceCompiler();
+            compiler.visit(parseTree);
 
-        RaceRuntime runtime = new RaceRuntime(compiler.getOutput());
-        runtime.execute();
-        System.out.println(runtime.getOutput());
+            System.out.println(compiler.getOutput());
+            writer.println(compiler.getOutput());
 
-        writer.println("Output of the program ");
-        writer.println(runtime.getOutput());
+            RaceRuntime runtime = new RaceRuntime(compiler.getOutput());
+            runtime.execute();
+            System.out.println(runtime.getOutput());
+
+            writer.println("Output of the program ");
+            writer.println(runtime.getOutput());
+        }else {
+        	System.out.println(parseTree.toStringTree(raceParser));
+        	System.out.println("Syntax error in example");
+        }
+
         writer.close();
     }
 }
