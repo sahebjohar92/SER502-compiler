@@ -197,7 +197,7 @@ public class RaceCompiler extends RaceBaseVisitor{
 	{ 
 		String value = ctx.BOOLEAN().getText();
 		boolean bolVal;
-		if(value == "T") {
+		if(value.equals("T")) {
 			bolVal = true;
 		}
 		else {
@@ -206,7 +206,7 @@ public class RaceCompiler extends RaceBaseVisitor{
         if(ctx.NOT() != null) {
             bolVal = !bolVal;
         }
-        intermediateCodeGenerator.addIntermediateOutput("SAVE REG " + value);
+        intermediateCodeGenerator.addIntermediateOutput("SAVE REG " + bolVal);
 		return null; 
 	}
 	
