@@ -1,0 +1,6 @@
+race
+float a >> 5*6 + 4 + 8/2
+WRITE(a)
+a++
+WRITE(a)
+finish

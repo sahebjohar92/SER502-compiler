@@ -1,0 +1,10 @@
+race
+float a >> 1
+for(float index >> 0; index < 5; index++) {
+    a >> 0
+    while ( a < 10 ) {
+        WRITE(a)
+        a >> a + 1
+    }
+}
+finish

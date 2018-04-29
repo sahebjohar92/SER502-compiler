@@ -16,9 +16,15 @@ public class Main {
 
         String inputFile = "inputFile.race";
 
-        String inputPath = "./src/sample/input/";
-        String outputPath = "./src/sample/output/";
-        CharStream code = CharStreams.fromFileName(args[0]);
+        String inputPath = "./src/data/";
+
+        String path = inputPath + inputFile;
+
+        if (args.length > 1) {
+            path = args[0];
+        }
+
+        CharStream code = CharStreams.fromFileName(path);
 
         RaceLexer raceLexer = new RaceLexer(code);
         CommonTokenStream tokens = new CommonTokenStream(raceLexer);
@@ -26,7 +32,7 @@ public class Main {
         RaceParser raceParser = new RaceParser(tokens);
         ParseTree parseTree = raceParser.program();
 
-        PrintWriter writer = new PrintWriter(args[0].replace("race", "txt"), "UTF-8");
+        PrintWriter writer = new PrintWriter(path.replace("race", "intermediate"), "UTF-8");
         
         try {
             RaceCompiler compiler = new RaceCompiler();
@@ -40,8 +46,10 @@ public class Main {
             runtime.execute();
             System.out.println(runtime.getOutput());
 
-            writer.println("Output of the program ");
-            writer.println(runtime.getOutput());
+            PrintWriter writerOutput = new PrintWriter(path.replace("race", "output"), "UTF-8");
+            writerOutput.println("Output of the program ");
+            writerOutput.println(runtime.getOutput());
+            writerOutput.close();
         }catch(Exception ex) {
         	writer.println("Syntax error in example program. Please check.");
         	System.out.println("Syntax error in example program. Please check.");
