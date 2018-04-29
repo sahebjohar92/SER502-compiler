@@ -18,7 +18,7 @@ public class Main {
 
         String inputPath = "./src/sample/input/";
         String outputPath = "./src/sample/output/";
-        CharStream code = CharStreams.fromFileName(inputPath + inputFile);
+        CharStream code = CharStreams.fromFileName(args[0]);
 
         RaceLexer raceLexer = new RaceLexer(code);
         CommonTokenStream tokens = new CommonTokenStream(raceLexer);
@@ -26,7 +26,7 @@ public class Main {
         RaceParser raceParser = new RaceParser(tokens);
         ParseTree parseTree = raceParser.program();
 
-        PrintWriter writer = new PrintWriter(outputPath + inputFile, "UTF-8");
+        PrintWriter writer = new PrintWriter(args[0].replace("race", "txt"), "UTF-8");
         
         try {
             RaceCompiler compiler = new RaceCompiler();
