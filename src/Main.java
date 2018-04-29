@@ -20,7 +20,7 @@ public class Main {
 
         String path = inputPath + inputFile;
 
-        if (args.length > 1) {
+        if (args.length > 0) {
             path = args[0];
         }
 
