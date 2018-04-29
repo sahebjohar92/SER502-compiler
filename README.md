@@ -49,4 +49,6 @@ Terminal Commands to run the compiler:
      Run the command: 
      java -jar race.jar inputFile.race
      java -jar raceRuntime.jar inputFile.intermediate
-     
+ 
+Link to Youtube Video
+https://youtu.be/oqYKOAkgXS4
